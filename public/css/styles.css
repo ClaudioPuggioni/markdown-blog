@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  position: relative;
+}
+html::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-image: url("/assets/seamless-pencils-royalty.jpg");
+  background-repeat: repeat;
+  filter: grayscale(100%);
+  opacity: 7%;
+  z-index: -2;
+}
+
+#header {
+  margin: 50px 4%;
+  margin-bottom: 15px;
+  font-weight: 800;
+  font-size: 44px;
+}
+
+#subHeaderDiv {
+  margin: 4%;
+  margin-top: 0px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#subHeader {
+  font-weight: 500;
+  font-size: 17px;
+  font-style: italic;
+}
+#addArticleBtn {
+  padding: 3px 5px;
+  margin-right: 5px;
+}
+
+.card {
+  margin: 2.5% 4%;
+  padding: 35px 4%;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.cardTitleDiv {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+.detailsBtn {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+
+  border: 1px solid black;
+  border-radius: 50%;
+  background-color: transparent;
+  box-shadow: 0.2px 0.2px 1px 1px rgba(0, 0, 0, 0.174);
+  overflow: hidden;
+}
+.detailsBtn:hover {
+  cursor: pointer;
+}
+.detailsImg {
+  z-index: -1;
+}
+
+#addPostContainer {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.newPostHeader {
+  margin: 13px 0px;
+  align-self: center;
+}
+#addPostCard {
+  margin-top: 50px;
+  padding: 14px 10px;
+
+  display: flex;
+  flex-direction: column;
+
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+#addPostForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#addPostTitle {
+  height: 30px;
+  padding-left: 10px;
+}
+#addPostBody {
+  padding: 10px;
+  min-width: 500px;
+  min-height: 400px;
+}
+#addPostAuthor {
+  height: 30px;
+  padding-left: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+#detailContainer {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: white;
+}
+#detailHeader {
+  padding: 40px;
+  padding-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 700;
+  font-size: 22px;
+}
+#detailHeaderEdit {
+  padding-left: 5px;
+  height: 30px;
+  width: 410px;
+}
+#detailDate {
+  padding: 40px;
+  padding-top: 0px;
+  padding-bottom: 20px;
+}
+#detailBody {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin: 10px 0px;
+  padding: 30px 40px;
+}
+#detailBodyEdit {
+  height: 100%;
+  min-height: 50vh;
+  width: 100%;
+
+  margin: 10px 0px;
+  padding: 30px 40px;
+}
+#detailAuthor {
+  padding: 0 4%;
+  padding-right: 40px;
+  padding-bottom: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  align-self: flex-end;
+  gap: 10px;
+}
+#detailAuthorEdit {
+  padding-left: 5px;
+  height: 30px;
+  width: 210px;
+}
+.authorDiv {
+  margin-right: 20px;
+  align-self: flex-end;
+}
+.editBtn,
+#editBtnBody {
+  height: 25px;
+  width: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.editBtnImg {
+  width: 20px;
+}
+#editBtnBodyImg {
+  width: 20px;
+  z-index: -1;
+}
+#editBtnBody {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  border: 1px solid black;
+  border-radius: 3px;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.bgColor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  width: 100px;
+  background-color: #f2f2f2;
+  z-index: -2;
+}

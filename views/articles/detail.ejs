@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Article Detailed</title>
+  </head>
+  <body>
+    <div id="detailContainer">
+      <form id="detailHeader" action="/<%= article._id %>" method="POST">
+        <div id="detailHeaderDone"><%= article.title %></div>
+        <input name="title" id="detailHeaderEdit" type="text" style="display: none" value="<%= article.title %>" onkeydown="enterTitle(event)" />
+        <button class="editBtn" type="button" onclick="titleEdit(event)">
+          <img class="editBtnImg" src="assets/edit.svg" alt="edit this" />
+        </button>
+      </form>
+      <div id="detailDate">
+        <div id="detailDateDone"><%= article.created_at %></div>
+      </div>
+      <form id="detailBody" action="/<%= article._id %>" method="POST">
+        <div id="detailBodyDone"><%= article.body %></div>
+        <textarea name="body" id="detailBodyEdit" type="text" style="display: none" form="detailBody"><%= article.body %></textarea>
+        <button id="editBtnBody" type="button" onclick="bodyEdit(event)">
+          <img id="editBtnBodyImg" src="assets/edit.svg" alt="edit this" />
+          <div class="bgColor"></div>
+        </button>
+      </form>
+      <form id="detailAuthor" action="/<%= article._id %>" method="POST">
+        <div id="detailAuthorDone">by <%= article.author_name %></div>
+        <input name="author" id="detailAuthorEdit" type="text" style="display: none" value="<%= article.author_name %>" onkeydown="enterAuthor(event)" />
+        <button class="editBtn" type="button" onclick="authorEdit(event)">
+          <img class="editBtnImg" src="assets/edit.svg" alt="edit this" />
+        </button>
+      </form>
+    </div>
+    <script>
+      let editTitle = false;
+      let editBody = false;
+      let editAuthor = false;
+
+      function titleEdit(e) {
+        if (!editTitle) {
+          document.querySelector("#detailHeaderDone").style.display = "none";
+          document.querySelector("#detailHeaderEdit").style.display = "flex";
+          e.target.type = "button";
+        } else {
+          document.querySelector("#detailHeaderDone").style.display = "flex";
+          document.querySelector("#detailHeaderEdit").style.display = "none";
+          document.querySelector("#detailHeaderDone").innerText = document.querySelector("#detailHeaderEdit").value;
+          e.target.type = "submit";
+        }
+        editTitle = !editTitle ? true : false;
+      }
+      function bodyEdit(e) {
+        if (!editBody) {
+          document.querySelector("#detailBodyDone").style.display = "none";
+          document.querySelector("#detailBodyEdit").style.display = "flex";
+          e.target.type = "button";
+        } else {
+          document.querySelector("#detailBodyDone").style.display = "flex";
+          document.querySelector("#detailBodyEdit").style.display = "none";
+          document.querySelector("#detailBodyDone").innerText = document.querySelector("#detailBodyEdit").value;
+          e.target.type = "submit";
+        }
+        editBody = !editBody ? true : false;
+      }
+      function authorEdit(e) {
+        if (!editAuthor) {
+          document.querySelector("#detailAuthorDone").style.display = "none";
+          document.querySelector("#detailAuthorEdit").style.display = "flex";
+          e.target.type = "button";
+        } else {
+          document.querySelector("#detailAuthorDone").style.display = "flex";
+          document.querySelector("#detailAuthorEdit").style.display = "none";
+          document.querySelector("#detailAuthorDone").innerText = `by ${document.querySelector("#detailAuthorEdit").value}`;
+          e.target.type = "submit";
+        }
+        editAuthor = !editAuthor ? true : false;
+      }
+      function enterTitle(e) {
+        if (e.key === "Enter") {
+          document.querySelector("#detailHeaderDone").style.display = "flex";
+          document.querySelector("#detailHeaderEdit").style.display = "none";
+          document.querySelector("#detailHeaderDone").innerText = document.querySelector("#detailHeaderEdit").value;
+          editTitle = !editTitle ? true : false;
+        }
+      }
+      function enterAuthor(e) {
+        if (e.key === "Enter") {
+          document.querySelector("#detailAuthorDone").style.display = "flex";
+          document.querySelector("#detailAuthorEdit").style.display = "none";
+          document.querySelector("#detailAuthorDone").innerText = `by ${document.querySelector("#detailAuthorEdit").value}`;
+          editAuthor = !editAuthor ? true : false;
+        }
+      }
+    </script>
+  </body>
+</html>
